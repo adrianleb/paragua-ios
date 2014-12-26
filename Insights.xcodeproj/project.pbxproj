@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		AEBADBE51A4DD1FF00180115 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBADBE41A4DD1FF00180115 /* AppDelegate.swift */; };
-		AEBADBE71A4DD1FF00180115 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBADBE61A4DD1FF00180115 /* ViewController.swift */; };
 		AEBADBEA1A4DD1FF00180115 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEBADBE81A4DD1FF00180115 /* Main.storyboard */; };
 		AEBADBEC1A4DD1FF00180115 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEBADBEB1A4DD1FF00180115 /* Images.xcassets */; };
 		AEBADBEF1A4DD1FF00180115 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEBADBED1A4DD1FF00180115 /* LaunchScreen.xib */; };
 		AEBADBFB1A4DD1FF00180115 /* InsightsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBADBFA1A4DD1FF00180115 /* InsightsTests.swift */; };
+		AEBADC051A4DD28D00180115 /* InsightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBADC041A4DD28D00180115 /* InsightModel.swift */; };
+		AEBADC071A4DD59900180115 /* InsightTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBADC061A4DD59900180115 /* InsightTableViewController.swift */; };
+		AEBADC091A4DE37000180115 /* OneShotLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBADC081A4DE37000180115 /* OneShotLocationManager.swift */; };
+		AEBADC0B1A4DF1AD00180115 /* DateClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBADC0A1A4DF1AD00180115 /* DateClass.swift */; };
+		AEBADC0D1A4DF71F00180115 /* InsightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBADC0C1A4DF71F00180115 /* InsightTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +33,17 @@
 		AEBADBDF1A4DD1FF00180115 /* Insights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Insights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEBADBE31A4DD1FF00180115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEBADBE41A4DD1FF00180115 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AEBADBE61A4DD1FF00180115 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AEBADBE91A4DD1FF00180115 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AEBADBEB1A4DD1FF00180115 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AEBADBEE1A4DD1FF00180115 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		AEBADBF41A4DD1FF00180115 /* InsightsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InsightsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEBADBF91A4DD1FF00180115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEBADBFA1A4DD1FF00180115 /* InsightsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsTests.swift; sourceTree = "<group>"; };
+		AEBADC041A4DD28D00180115 /* InsightModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightModel.swift; sourceTree = "<group>"; };
+		AEBADC061A4DD59900180115 /* InsightTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightTableViewController.swift; sourceTree = "<group>"; };
+		AEBADC081A4DE37000180115 /* OneShotLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneShotLocationManager.swift; sourceTree = "<group>"; };
+		AEBADC0A1A4DF1AD00180115 /* DateClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateClass.swift; sourceTree = "<group>"; };
+		AEBADC0C1A4DF71F00180115 /* InsightTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +85,16 @@
 		AEBADBE11A4DD1FF00180115 /* Insights */ = {
 			isa = PBXGroup;
 			children = (
+				AEBADC081A4DE37000180115 /* OneShotLocationManager.swift */,
 				AEBADBE41A4DD1FF00180115 /* AppDelegate.swift */,
-				AEBADBE61A4DD1FF00180115 /* ViewController.swift */,
 				AEBADBE81A4DD1FF00180115 /* Main.storyboard */,
+				AEBADC0C1A4DF71F00180115 /* InsightTableViewCell.swift */,
+				AEBADC041A4DD28D00180115 /* InsightModel.swift */,
 				AEBADBEB1A4DD1FF00180115 /* Images.xcassets */,
 				AEBADBED1A4DD1FF00180115 /* LaunchScreen.xib */,
 				AEBADBE21A4DD1FF00180115 /* Supporting Files */,
+				AEBADC061A4DD59900180115 /* InsightTableViewController.swift */,
+				AEBADC0A1A4DF1AD00180115 /* DateClass.swift */,
 			);
 			path = Insights;
 			sourceTree = "<group>";
@@ -212,7 +224,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEBADBE71A4DD1FF00180115 /* ViewController.swift in Sources */,
+				AEBADC091A4DE37000180115 /* OneShotLocationManager.swift in Sources */,
+				AEBADC071A4DD59900180115 /* InsightTableViewController.swift in Sources */,
+				AEBADC0D1A4DF71F00180115 /* InsightTableViewCell.swift in Sources */,
+				AEBADC0B1A4DF1AD00180115 /* DateClass.swift in Sources */,
+				AEBADC051A4DD28D00180115 /* InsightModel.swift in Sources */,
 				AEBADBE51A4DD1FF00180115 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
