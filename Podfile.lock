@@ -1,0 +1,30 @@
+PODS:
+  - Bolts (1.1.3)
+  - Facebook-iOS-SDK (3.21.1):
+    - Bolts (~> 1.0)
+  - Firebase (2.0.3)
+  - GeoFire (1.0.0):
+    - Firebase (~> 2.0)
+
+DEPENDENCIES:
+  - Facebook-iOS-SDK (~> 3.21)
+  - Firebase
+  - GeoFire (from `https://github.com/firebase/geofire-objc.git`, tag `v1.1.0`)
+
+EXTERNAL SOURCES:
+  GeoFire:
+    :git: https://github.com/firebase/geofire-objc.git
+    :tag: v1.1.0
+
+CHECKOUT OPTIONS:
+  GeoFire:
+    :git: https://github.com/firebase/geofire-objc.git
+    :tag: v1.1.0
+
+SPEC CHECKSUMS:
+  Bolts: 3db0a875235e0c9042b013af13af0f00f79b102c
+  Facebook-iOS-SDK: 18c26e86ab25c17854a2ee2a8f60562099c6600f
+  Firebase: bb958f1328ab902972d4419cbec232a989b5c613
+  GeoFire: 9816aeaf1f31c3f226690b03f063e4a185a26394
+
+COCOAPODS: 0.36.0.beta.1

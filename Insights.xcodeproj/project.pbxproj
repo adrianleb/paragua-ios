@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B65AF5E7E9C62FFB12F98FD /* libPods-Insights.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3526FAB4CB9043C2C62A4F30 /* libPods-Insights.a */; };
+		AE0F69AF1A4E288300553853 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F69AE1A4E288300553853 /* SessionViewController.swift */; };
+		AE0F69B11A4E423D00553853 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F69B01A4E423D00553853 /* SessionManager.swift */; };
+		AE0F69B31A4E495D00553853 /* CustomGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F69B21A4E495D00553853 /* CustomGesture.swift */; };
+		AE0F69B51A4E562300553853 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F69B41A4E562300553853 /* LocationManager.swift */; };
+		AE38D5FF1A4F3696008468DA /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE38D5FE1A4F3696008468DA /* CreateViewController.swift */; };
 		AEBADBE51A4DD1FF00180115 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBADBE41A4DD1FF00180115 /* AppDelegate.swift */; };
 		AEBADBEA1A4DD1FF00180115 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEBADBE81A4DD1FF00180115 /* Main.storyboard */; };
 		AEBADBEC1A4DD1FF00180115 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEBADBEB1A4DD1FF00180115 /* Images.xcassets */; };
@@ -17,6 +23,8 @@
 		AEBADC091A4DE37000180115 /* OneShotLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBADC081A4DE37000180115 /* OneShotLocationManager.swift */; };
 		AEBADC0B1A4DF1AD00180115 /* DateClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBADC0A1A4DF1AD00180115 /* DateClass.swift */; };
 		AEBADC0D1A4DF71F00180115 /* InsightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBADC0C1A4DF71F00180115 /* InsightTableViewCell.swift */; };
+		AEBADC0F1A4E162400180115 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBADC0E1A4E162400180115 /* MapKit.framework */; };
+		AEBADC111A4E176400180115 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBADC101A4E176400180115 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +38,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3526FAB4CB9043C2C62A4F30 /* libPods-Insights.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Insights.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		455F9404A9224493ADAF771E /* Pods-Insights.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insights.release.xcconfig"; path = "Pods/Target Support Files/Pods-Insights/Pods-Insights.release.xcconfig"; sourceTree = "<group>"; };
+		6049BDFE5CC7B060139B1D69 /* Pods-Insights.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insights.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Insights/Pods-Insights.debug.xcconfig"; sourceTree = "<group>"; };
+		AE0F69AE1A4E288300553853 /* SessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
+		AE0F69B01A4E423D00553853 /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		AE0F69B21A4E495D00553853 /* CustomGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomGesture.swift; sourceTree = "<group>"; };
+		AE0F69B41A4E562300553853 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		AE38D5FE1A4F3696008468DA /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		AEBADBDF1A4DD1FF00180115 /* Insights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Insights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEBADBE31A4DD1FF00180115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEBADBE41A4DD1FF00180115 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +60,9 @@
 		AEBADC081A4DE37000180115 /* OneShotLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneShotLocationManager.swift; sourceTree = "<group>"; };
 		AEBADC0A1A4DF1AD00180115 /* DateClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateClass.swift; sourceTree = "<group>"; };
 		AEBADC0C1A4DF71F00180115 /* InsightTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightTableViewCell.swift; sourceTree = "<group>"; };
+		AEBADC0E1A4E162400180115 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AEBADC101A4E176400180115 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		AEBADC161A4E205500180115 /* Insights-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Insights-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEBADC0F1A4E162400180115 /* MapKit.framework in Frameworks */,
+				3B65AF5E7E9C62FFB12F98FD /* libPods-Insights.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,9 +88,12 @@
 		AEBADBD61A4DD1FF00180115 = {
 			isa = PBXGroup;
 			children = (
+				AEBADC0E1A4E162400180115 /* MapKit.framework */,
 				AEBADBE11A4DD1FF00180115 /* Insights */,
 				AEBADBF71A4DD1FF00180115 /* InsightsTests */,
 				AEBADBE01A4DD1FF00180115 /* Products */,
+				B6C8C200418CDE30FF65AC47 /* Pods */,
+				D9EB05CFEE8545AE07AB6542 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +112,8 @@
 				AEBADC081A4DE37000180115 /* OneShotLocationManager.swift */,
 				AEBADBE41A4DD1FF00180115 /* AppDelegate.swift */,
 				AEBADBE81A4DD1FF00180115 /* Main.storyboard */,
+				AE38D5FE1A4F3696008468DA /* CreateViewController.swift */,
+				AE0F69B21A4E495D00553853 /* CustomGesture.swift */,
 				AEBADC0C1A4DF71F00180115 /* InsightTableViewCell.swift */,
 				AEBADC041A4DD28D00180115 /* InsightModel.swift */,
 				AEBADBEB1A4DD1FF00180115 /* Images.xcassets */,
@@ -95,6 +121,11 @@
 				AEBADBE21A4DD1FF00180115 /* Supporting Files */,
 				AEBADC061A4DD59900180115 /* InsightTableViewController.swift */,
 				AEBADC0A1A4DF1AD00180115 /* DateClass.swift */,
+				AEBADC101A4E176400180115 /* MapViewController.swift */,
+				AEBADC161A4E205500180115 /* Insights-Bridging-Header.h */,
+				AE0F69AE1A4E288300553853 /* SessionViewController.swift */,
+				AE0F69B01A4E423D00553853 /* SessionManager.swift */,
+				AE0F69B41A4E562300553853 /* LocationManager.swift */,
 			);
 			path = Insights;
 			sourceTree = "<group>";
@@ -124,6 +155,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B6C8C200418CDE30FF65AC47 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6049BDFE5CC7B060139B1D69 /* Pods-Insights.debug.xcconfig */,
+				455F9404A9224493ADAF771E /* Pods-Insights.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D9EB05CFEE8545AE07AB6542 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3526FAB4CB9043C2C62A4F30 /* libPods-Insights.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -131,9 +179,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AEBADBFE1A4DD1FF00180115 /* Build configuration list for PBXNativeTarget "Insights" */;
 			buildPhases = (
+				D32ABDA871EB81EAB5C5A08D /* Check Pods Manifest.lock */,
 				AEBADBDB1A4DD1FF00180115 /* Sources */,
 				AEBADBDC1A4DD1FF00180115 /* Frameworks */,
 				AEBADBDD1A4DD1FF00180115 /* Resources */,
+				B9011914C8C1172A3C1C6CA5 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -173,6 +223,11 @@
 				TargetAttributes = {
 					AEBADBDE1A4DD1FF00180115 = {
 						CreatedOnToolsVersion = 6.1.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					AEBADBF31A4DD1FF00180115 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -219,17 +274,56 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B9011914C8C1172A3C1C6CA5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Insights/Pods-Insights-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D32ABDA871EB81EAB5C5A08D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AEBADBDB1A4DD1FF00180115 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				AEBADC091A4DE37000180115 /* OneShotLocationManager.swift in Sources */,
+				AE0F69AF1A4E288300553853 /* SessionViewController.swift in Sources */,
+				AE0F69B11A4E423D00553853 /* SessionManager.swift in Sources */,
 				AEBADC071A4DD59900180115 /* InsightTableViewController.swift in Sources */,
+				AE0F69B31A4E495D00553853 /* CustomGesture.swift in Sources */,
 				AEBADC0D1A4DF71F00180115 /* InsightTableViewCell.swift in Sources */,
 				AEBADC0B1A4DF1AD00180115 /* DateClass.swift in Sources */,
 				AEBADC051A4DD28D00180115 /* InsightModel.swift in Sources */,
+				AE38D5FF1A4F3696008468DA /* CreateViewController.swift in Sources */,
+				AE0F69B51A4E562300553853 /* LocationManager.swift in Sources */,
 				AEBADBE51A4DD1FF00180115 /* AppDelegate.swift in Sources */,
+				AEBADC111A4E176400180115 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,21 +444,28 @@
 		};
 		AEBADBFF1A4DD1FF00180115 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6049BDFE5CC7B060139B1D69 /* Pods-Insights.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Insights/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Insights/Insights-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		AEBADC001A4DD1FF00180115 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 455F9404A9224493ADAF771E /* Pods-Insights.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Insights/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Insights/Insights-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -421,6 +522,7 @@
 				AEBADC001A4DD1FF00180115 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AEBADC011A4DD1FF00180115 /* Build configuration list for PBXNativeTarget "InsightsTests" */ = {
 			isa = XCConfigurationList;
@@ -429,6 +531,7 @@
 				AEBADC031A4DD1FF00180115 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

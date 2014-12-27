@@ -13,10 +13,15 @@ class InsightTableViewCell: UITableViewCell {
     @IBOutlet weak var BodyLabel: UILabel!
     @IBOutlet weak var DateLabel: UILabel!
     @IBOutlet weak var DistanceLabel: UILabel!
+    @IBOutlet weak var UpvoteButton: UIButton!
     
     override func awakeFromNib() {
         
         super.awakeFromNib()
+
+        self.contentView.frame = self.bounds
+        
+        self.contentView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
         // Initialization code
     }
 
@@ -26,4 +31,11 @@ class InsightTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    override var bounds : CGRect {
+        didSet {
+            // Fix autolayout constraints broken in Xcode 6 GM + iOS 7.1
+            self.contentView.frame = bounds
+        }
+    }
+    
 }

@@ -9,9 +9,12 @@
 import Foundation
 
 struct Insight {
+    let key : String
     let body : String
-    let created_at : String
-    let user_id : Int
+    let created_at : NSTimeInterval
+    let user_id : String
+    let upvotes : Int
     let latitude : Double
     let longitude : Double
+    var distance : Double?
 }
