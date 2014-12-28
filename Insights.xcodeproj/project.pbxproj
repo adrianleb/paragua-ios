@@ -13,6 +13,7 @@
 		AE0F69B31A4E495D00553853 /* CustomGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F69B21A4E495D00553853 /* CustomGesture.swift */; };
 		AE0F69B51A4E562300553853 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F69B41A4E562300553853 /* LocationManager.swift */; };
 		AE38D5FF1A4F3696008468DA /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE38D5FE1A4F3696008468DA /* CreateViewController.swift */; };
+		AE38D6011A4F484B008468DA /* InsightsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE38D6001A4F484B008468DA /* InsightsManager.swift */; };
 		AEBADBE51A4DD1FF00180115 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBADBE41A4DD1FF00180115 /* AppDelegate.swift */; };
 		AEBADBEA1A4DD1FF00180115 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEBADBE81A4DD1FF00180115 /* Main.storyboard */; };
 		AEBADBEC1A4DD1FF00180115 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEBADBEB1A4DD1FF00180115 /* Images.xcassets */; };
@@ -46,6 +47,7 @@
 		AE0F69B21A4E495D00553853 /* CustomGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomGesture.swift; sourceTree = "<group>"; };
 		AE0F69B41A4E562300553853 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		AE38D5FE1A4F3696008468DA /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
+		AE38D6001A4F484B008468DA /* InsightsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightsManager.swift; sourceTree = "<group>"; };
 		AEBADBDF1A4DD1FF00180115 /* Insights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Insights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEBADBE31A4DD1FF00180115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEBADBE41A4DD1FF00180115 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				AEBADC161A4E205500180115 /* Insights-Bridging-Header.h */,
 				AE0F69AE1A4E288300553853 /* SessionViewController.swift */,
 				AE0F69B01A4E423D00553853 /* SessionManager.swift */,
+				AE38D6001A4F484B008468DA /* InsightsManager.swift */,
 				AE0F69B41A4E562300553853 /* LocationManager.swift */,
 			);
 			path = Insights;
@@ -223,6 +226,7 @@
 				TargetAttributes = {
 					AEBADBDE1A4DD1FF00180115 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = HP7SJ593H9;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -323,6 +327,7 @@
 				AE38D5FF1A4F3696008468DA /* CreateViewController.swift in Sources */,
 				AE0F69B51A4E562300553853 /* LocationManager.swift in Sources */,
 				AEBADBE51A4DD1FF00180115 /* AppDelegate.swift in Sources */,
+				AE38D6011A4F484B008468DA /* InsightsManager.swift in Sources */,
 				AEBADC111A4E176400180115 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,9 +453,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Insights/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Insights/Insights-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -462,9 +470,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Insights/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Insights/Insights-Bridging-Header.h";
 			};
 			name = Release;

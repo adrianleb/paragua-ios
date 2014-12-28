@@ -12,8 +12,6 @@ import CoreLocation
 class InsightTableViewController: UITableViewController, UIGestureRecognizerDelegate {
 
     var insights = [Insight]()
-    var manager: OneShotLocationManager?
-    var location: CLLocation?
     let ref = Firebase(url: "https://insights.firebaseio.com/insights")
     var locationManager = LocationManager.sharedInstance
     
@@ -24,6 +22,8 @@ class InsightTableViewController: UITableViewController, UIGestureRecognizerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.estimatedRowHeight = 200.0;
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
 
         SessionManager.sharedInstance.checkSession({(result: Bool) in
             if result != true {
@@ -47,109 +47,21 @@ class InsightTableViewController: UITableViewController, UIGestureRecognizerDele
         self.locationManager.showVerboseMessage = true
         self.locationManager.autoUpdate = true
         self.locationManager.startUpdatingLocationWithCompletionHandler { (latitude, longitude, status, verboseMessage, error) -> () in
-          println("lat:\(latitude) lon:\(longitude) status:\(status) error:\(error)")
-            if self.insights.count == 0 {
-                self.queryRegion()
+//          println("lat:\(latitude) lon:\(longitude) status:\(status) error:\(error)")
+            if InsightsManager.sharedInstance.insights.count == 0 {
+                InsightsManager.sharedInstance.queryRegion()
             }
         }
+        InsightsManager.sharedInstance.notificationCenter.addObserver(self, selector: Selector("refreshTables"), name: "newInsight", object:nil)
+
     }
-    func queryRegion() {
-        let geoFire = GeoFire(firebaseRef: self.ref)
-        
-        let center = CLLocation(latitude: self.locationManager.latitude, longitude: self.locationManager.longitude)
-        
-        // Query location by region
-        let span = MKCoordinateSpanMake(10.5, 10.5)
-        let region = MKCoordinateRegionMake(center.coordinate, span)
-        
-        var regionQuery = geoFire.queryWithRegion(region)
-        
-        var queryHandle = regionQuery.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
-            println("Key '\(key)' entered the search area and is at location '\(location)'")
-            self.addRow(key)
-            
-            
-        })
-        
-        var queryReadyHandle = regionQuery.observeReadyWithBlock({
-            println("Keyssss")
-//            self.locationManager.stopUpdatingLocation()
-            
-        })
-        
-//        // Attach a closure to read the data at our posts reference
-//        self.ref.observeEventType(.Value, withBlock: { snapshot in
-//            
-//            for rest in snapshot.children.allObjects as [FDataSnapshot] {
-//                
-////                println(rest.value["body"])
-//                let newInsight = Insight(body: "lalalala", created_at: "2014-10-10",  user_id: 1, upvotes: 10, latitude: 52.377924, longitude: 4.890417, distance:0)
-//                self.insights.append(newInsight)
-//            }
-//            self.tableView.reloadData()
-//            }, withCancelBlock: { error in
-//                println(error.description)
-//        })
-//        
-        
 
 
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-    
-    func addRow(keyString: String) {
-        let insightRef = self.ref.childByAppendingPath(keyString)
-        println(keyString)
-        let insightKey = keyString
-        insightRef.observeEventType(.Value, withBlock: { snapshot in
-//            println()
-
-            var bodytext = snapshot.value["body"] as String?
-            var userId = snapshot.value["user_id"] as String?
-            var timestamp = snapshot.value["created_at"] as NSTimeInterval?
-            var coord = snapshot.childSnapshotForPath("l")
-            var lat = coord.value[0] as Double?
-            var lon = coord.value[1] as Double?
-            let results = self.insights.filter { el in el.key == keyString }
-            if results.count > 0 {
-                println("already ewists")
-                // any matching items are in results
-            } else {
-                // not found
-                var newInsight = Insight(key: insightKey, body: bodytext!, created_at: timestamp!,  user_id: userId!, upvotes: 0, latitude: lat!, longitude: lon!, distance:0)
-                self.updateInsightDistance(&newInsight)
-                self.insights.append(newInsight)
-                self.filterList()
-                insightRef.removeAllObservers()
-            }
-            
-//            let existingInsight = $.find(self.insights) { $0.key == insightKey }
-//            println("FOUND--- \(existingInsight)")
-
-            }, withCancelBlock: { error in
-                println(error.description)
-        })
-        
-    }
-    func filterList() { // should probably be called sort and not filter
-        self.insights.sort() {
-            return $0.distance < $1.distance
-        } // sort the fruit by name
-        self.tableView.reloadData(); // notify the table view the data has changed
-    }
-    
-
-
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+//    
+//    override func didReceiveMemoaryWarning() {
+//        super.didReceiveMemoryWarning()
+//        // Dispose of any resources that can be recreated.
+//    }
 
     // MARK: - Table view data source
 
@@ -159,10 +71,13 @@ class InsightTableViewController: UITableViewController, UIGestureRecognizerDele
 //        return 0
 //    }
 
+    func refreshTables() {
+        self.tableView.reloadData()
+    }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return self.insights.count
+        return InsightsManager.sharedInstance.insights.count
     }
 
  
@@ -173,7 +88,7 @@ class InsightTableViewController: UITableViewController, UIGestureRecognizerDele
 //        self.contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 //        
         // Get the corresponding candy from our candies array
-        var insight = self.insights[indexPath.row]
+        var insight = InsightsManager.sharedInstance.insights[indexPath.row]
 
 //        body
 //        cell.BodyLabel.preferredMaxLayoutWidth = cell.BodyLabel.frame.size.width - 200
@@ -218,35 +133,12 @@ class InsightTableViewController: UITableViewController, UIGestureRecognizerDele
     }
 
     
-    func updateInsightDistance(inout insight:Insight) {
-        let insightLocation = CLLocation( latitude: insight.latitude, longitude: insight.longitude)
-        let center = CLLocation(latitude: self.locationManager.latitude, longitude: self.locationManager.longitude)
-        insight.distance = center.distanceFromLocation(insightLocation)
-    }
-    
     
 
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        manager = OneShotLocationManager()
-        manager!.fetchWithCompletion {location, error in
-            // fetch location or an error
-            if let loc = location {
-                self.location = location
-                for i in 0...self.insights.count-1 {
-                    self.updateInsightDistance(&self.insights[i])
-                }
-                self.tableView.reloadData()
-
-//                println(location)
-                self.tableView.reloadData()
-            } else if let err = error {
-                println(err.localizedDescription)
-            }
-            self.manager = nil
-        }
     }
     
 
