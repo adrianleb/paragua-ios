@@ -10,19 +10,21 @@ import UIKit
 
 class InsightTableViewCell: UITableViewCell {
 
+
+    var insight: Insight?
     @IBOutlet weak var BodyLabel: UILabel!
     @IBOutlet weak var DateLabel: UILabel!
     @IBOutlet weak var DistanceLabel: UILabel!
     @IBOutlet weak var UpvoteButton: UIButton!
     
+    @IBAction func voteButtonTapped(sender: UIButton) {
+        insight!.addVote()
+    }
+    
     override func awakeFromNib() {
         
         super.awakeFromNib()
 
-        self.contentView.frame = self.bounds
-        
-        self.contentView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
-        // Initialization code
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -31,11 +33,11 @@ class InsightTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    override var bounds : CGRect {
-        didSet {
-            // Fix autolayout constraints broken in Xcode 6 GM + iOS 7.1
-            self.contentView.frame = bounds
-        }
-    }
+//    override var bounds : CGRect {
+//        didSet {
+//            // Fix autolayout constraints broken in Xcode 6 GM + iOS 7.1
+//            self.contentView.frame = bounds
+//        }
+//    }
     
 }

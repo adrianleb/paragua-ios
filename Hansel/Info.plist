@@ -52,7 +52,7 @@
 	<key>FacebookAppID</key>
 	<string>431487023669393</string>
 	<key>FacebookDisplayName</key>
-	<string>Insights</string>
+	<string>Hansel</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -69,8 +69,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>

@@ -8,42 +8,44 @@
 
 import UIKit
 
-class CreateViewController: UIViewController, UITextFieldDelegate {
+class CreateViewController: UIViewController, UITextViewDelegate {
 
     let ref = Firebase(url: "https://insights.firebaseio.com/insights")
     var locationManager = LocationManager.sharedInstance
     
-    @IBOutlet weak var contentField: UITextField!
+    let transitionManager = CreateTransitionManager()
+    @IBOutlet weak var contentField: UITextView!
     @IBOutlet weak var LocationString: UILabel!
     
+    @IBAction func closeTappend(sender: AnyObject) {
+//        performSegueWithIdentifier("unwindToMain", sender: self)
+    }
+    
     @IBAction func postButtonTouched(sender: AnyObject) {
-        let geoFire = GeoFire(firebaseRef: self.ref)
-        let lat = self.locationManager.latitude
-        let lon = self.locationManager.longitude
-        
-        let timeStamp = NSDate().timeIntervalSince1970
-        let uid = SessionManager.sharedInstance.authData?.uid
-        if uid != nil {
             println("lets do this")
-            var insight = Dictionary<String, AnyObject>()
+            var data = Dictionary<String, AnyObject>()
             let text = self.contentField.text
-            insight["body"] = text
-            insight["user_id"] = uid
-            insight["created_at"] = timeStamp
-            insight["upvotes"] = []
-            var insightRef = self.ref.childByAutoId()
-            geoFire.setLocation(CLLocation(latitude: lat, longitude: lon), forKey: insightRef.key)
-            insightRef.updateChildValues(insight)
-            self.performSegueWithIdentifier("goBackToInsights", sender: self)
+            data["body"] = text
+            InsightsManager.sharedInstance.createNew(data)
+        
+            performSegueWithIdentifier("unwindToMain", sender: self)
+//            self.performSegueWithIdentifier("goBackToInsights", sender: self)
             
-        }
+        
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.transform = CGAffineTransformMakeTranslation(0,50)
+        
         let lat = self.locationManager.latitude
         let lon = self.locationManager.longitude
         self.contentField.delegate = self
+        self.transitioningDelegate = self.transitionManager
+       
 
         self.locationManager.reverseGeocodeLocationUsingGoogleWithLatLon(latitude: lat, longitude: lon, onReverseGeocodingCompletionHandler: {(reverseGeocodeInfo, placemark, error) in
             let place = placemark!

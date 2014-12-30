@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AEBADBDE1A4DD1FF00180115"
-               BuildableName = "Insights.app"
-               BlueprintName = "Insights"
-               ReferencedContainer = "container:Insights.xcodeproj">
+               BuildableName = "Hansel.app"
+               BlueprintName = "Hansel"
+               ReferencedContainer = "container:Hansel.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AEBADBF31A4DD1FF00180115"
-               BuildableName = "InsightsTests.xctest"
-               BlueprintName = "InsightsTests"
-               ReferencedContainer = "container:Insights.xcodeproj">
+               BuildableName = "HanselTests.xctest"
+               BlueprintName = "HanselTests"
+               ReferencedContainer = "container:Hansel.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AEBADBF31A4DD1FF00180115"
-               BuildableName = "InsightsTests.xctest"
-               BlueprintName = "InsightsTests"
-               ReferencedContainer = "container:Insights.xcodeproj">
+               BuildableName = "HanselTests.xctest"
+               BlueprintName = "HanselTests"
+               ReferencedContainer = "container:Hansel.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AEBADBDE1A4DD1FF00180115"
-            BuildableName = "Insights.app"
-            BlueprintName = "Insights"
-            ReferencedContainer = "container:Insights.xcodeproj">
+            BuildableName = "Hansel.app"
+            BlueprintName = "Hansel"
+            ReferencedContainer = "container:Hansel.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AEBADBDE1A4DD1FF00180115"
-            BuildableName = "Insights.app"
-            BlueprintName = "Insights"
-            ReferencedContainer = "container:Insights.xcodeproj">
+            BuildableName = "Hansel.app"
+            BlueprintName = "Hansel"
+            ReferencedContainer = "container:Hansel.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AEBADBDE1A4DD1FF00180115"
-            BuildableName = "Insights.app"
-            BlueprintName = "Insights"
-            ReferencedContainer = "container:Insights.xcodeproj">
+            BuildableName = "Hansel.app"
+            BlueprintName = "Hansel"
+            ReferencedContainer = "container:Hansel.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
