@@ -45,6 +45,11 @@ class CreateViewController: UIViewController, UITextViewDelegate {
         let lon = self.locationManager.longitude
         self.contentField.delegate = self
         self.transitioningDelegate = self.transitionManager
+        
+        self.contentField.layer.cornerRadius = 1
+//        self.contentField.place
+        self.contentField.layer.borderWidth = 1
+        self.contentField.layer.borderColor = UIColor(white: 0.0, alpha: 0.1).CGColor
        
 
         self.locationManager.reverseGeocodeLocationUsingGoogleWithLatLon(latitude: lat, longitude: lon, onReverseGeocodingCompletionHandler: {(reverseGeocodeInfo, placemark, error) in
@@ -57,6 +62,13 @@ class CreateViewController: UIViewController, UITextViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func textField(textField: UITextField!, shouldChangeCharactersInRange range: NSRange, replacementString string: String!) -> Bool {
+        
+        let newLength = countElements(textField.text!) + countElements(string!) - range.length
+        return newLength <= 10 //Bool
+        
     }
     
     func textFieldShouldReturn(textField: UITextField!) -> Bool {

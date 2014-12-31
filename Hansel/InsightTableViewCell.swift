@@ -24,6 +24,10 @@ class InsightTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         
         super.awakeFromNib()
+        
+        self.UpvoteButton.layer.cornerRadius = self.UpvoteButton.frame.size.height/2
+        self.UpvoteButton.layer.borderWidth = 1
+        self.UpvoteButton.layer.borderColor = UIColor(white: 0.0, alpha: 0.1).CGColor
 
     }
 

@@ -31,6 +31,10 @@
 		AE148B0D1A53525600DAF29F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE148AD91A534E2900DAF29F /* Main.storyboard */; };
 		AEBADBFB1A4DD1FF00180115 /* InsightsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBADBFA1A4DD1FF00180115 /* InsightsTests.swift */; };
 		AEBADC0F1A4E162400180115 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBADC0E1A4E162400180115 /* MapKit.framework */; };
+		AED57C321A537C93007B797A /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED57C311A537C93007B797A /* NotificationCenter.framework */; };
+		AED57C371A537C93007B797A /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED57C361A537C93007B797A /* TodayViewController.swift */; };
+		AED57C391A537C93007B797A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AED57C381A537C93007B797A /* MainInterface.storyboard */; };
+		AED57C3C1A537C93007B797A /* Hansel Now.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AED57C301A537C93007B797A /* Hansel Now.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +45,28 @@
 			remoteGlobalIDString = AEBADBDE1A4DD1FF00180115;
 			remoteInfo = Insights;
 		};
+		AED57C3A1A537C93007B797A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEBADBD71A4DD1FF00180115 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AED57C2F1A537C93007B797A;
+			remoteInfo = "Hansel Now";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AED57C401A537C93007B797A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				AED57C3C1A537C93007B797A /* Hansel Now.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3526FAB4CB9043C2C62A4F30 /* libPods-Insights.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Insights.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +100,13 @@
 		AEBADBF91A4DD1FF00180115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEBADBFA1A4DD1FF00180115 /* InsightsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsTests.swift; sourceTree = "<group>"; };
 		AEBADC0E1A4E162400180115 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AED57C301A537C93007B797A /* Hansel Now.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Hansel Now.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AED57C311A537C93007B797A /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		AED57C351A537C93007B797A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AED57C361A537C93007B797A /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		AED57C381A537C93007B797A /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		AED57C411A537D16007B797A /* Hansel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Hansel.entitlements; sourceTree = "<group>"; };
+		AED57C421A537D1F007B797A /* Hansel Now.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Hansel Now.entitlements"; sourceTree = "<group>"; };
 		D224C646C8B7796B1D827C05 /* Pods-Hansel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hansel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hansel/Pods-Hansel.release.xcconfig"; sourceTree = "<group>"; };
 		FBC2DBD8E7C3B04B68EF48C9 /* Pods-Hansel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hansel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hansel/Pods-Hansel.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,12 +128,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AED57C2D1A537C93007B797A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AED57C321A537C93007B797A /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		AE148AD51A534E2900DAF29F /* Hansel */ = {
 			isa = PBXGroup;
 			children = (
+				AED57C411A537D16007B797A /* Hansel.entitlements */,
 				AE148AD61A534E2900DAF29F /* AppDelegate.swift */,
 				AE148AD71A534E2900DAF29F /* LaunchScreen.xib */,
 				AE148AD91A534E2900DAF29F /* Main.storyboard */,
@@ -134,6 +175,7 @@
 				AE148AD51A534E2900DAF29F /* Hansel */,
 				AEBADC0E1A4E162400180115 /* MapKit.framework */,
 				AEBADBF71A4DD1FF00180115 /* InsightsTests */,
+				AED57C331A537C93007B797A /* Hansel Now */,
 				AEBADBE01A4DD1FF00180115 /* Products */,
 				B6C8C200418CDE30FF65AC47 /* Pods */,
 				D9EB05CFEE8545AE07AB6542 /* Frameworks */,
@@ -145,6 +187,7 @@
 			children = (
 				AEBADBDF1A4DD1FF00180115 /* Hansel.app */,
 				AEBADBF41A4DD1FF00180115 /* HanselTests.xctest */,
+				AED57C301A537C93007B797A /* Hansel Now.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,6 +209,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		AED57C331A537C93007B797A /* Hansel Now */ = {
+			isa = PBXGroup;
+			children = (
+				AED57C421A537D1F007B797A /* Hansel Now.entitlements */,
+				AED57C361A537C93007B797A /* TodayViewController.swift */,
+				AED57C381A537C93007B797A /* MainInterface.storyboard */,
+				AED57C341A537C93007B797A /* Supporting Files */,
+			);
+			path = "Hansel Now";
+			sourceTree = "<group>";
+		};
+		AED57C341A537C93007B797A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AED57C351A537C93007B797A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		B6C8C200418CDE30FF65AC47 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +244,7 @@
 			children = (
 				3526FAB4CB9043C2C62A4F30 /* libPods-Insights.a */,
 				608E6664B6D37F63BF62F637 /* libPods-Hansel.a */,
+				AED57C311A537C93007B797A /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -198,10 +261,12 @@
 				AEBADBDC1A4DD1FF00180115 /* Frameworks */,
 				AEBADBDD1A4DD1FF00180115 /* Resources */,
 				B9011914C8C1172A3C1C6CA5 /* Copy Pods Resources */,
+				AED57C401A537C93007B797A /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				AED57C3B1A537C93007B797A /* PBXTargetDependency */,
 			);
 			name = Hansel;
 			productName = Insights;
@@ -226,6 +291,23 @@
 			productReference = AEBADBF41A4DD1FF00180115 /* HanselTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		AED57C2F1A537C93007B797A /* Hansel Now */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AED57C3D1A537C93007B797A /* Build configuration list for PBXNativeTarget "Hansel Now" */;
+			buildPhases = (
+				AED57C2C1A537C93007B797A /* Sources */,
+				AED57C2D1A537C93007B797A /* Frameworks */,
+				AED57C2E1A537C93007B797A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hansel Now";
+			productName = "Hansel Now";
+			productReference = AED57C301A537C93007B797A /* Hansel Now.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -239,6 +321,9 @@
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = HP7SJ593H9;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 1;
 							};
@@ -247,6 +332,15 @@
 					AEBADBF31A4DD1FF00180115 = {
 						CreatedOnToolsVersion = 6.1.1;
 						TestTargetID = AEBADBDE1A4DD1FF00180115;
+					};
+					AED57C2F1A537C93007B797A = {
+						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = HP7SJ593H9;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -265,6 +359,7 @@
 			targets = (
 				AEBADBDE1A4DD1FF00180115 /* Hansel */,
 				AEBADBF31A4DD1FF00180115 /* HanselTests */,
+				AED57C2F1A537C93007B797A /* Hansel Now */,
 			);
 		};
 /* End PBXProject section */
@@ -285,6 +380,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AED57C2E1A537C93007B797A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AED57C391A537C93007B797A /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +459,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AED57C2C1A537C93007B797A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AED57C371A537C93007B797A /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -363,6 +474,11 @@
 			isa = PBXTargetDependency;
 			target = AEBADBDE1A4DD1FF00180115 /* Hansel */;
 			targetProxy = AEBADBF51A4DD1FF00180115 /* PBXContainerItemProxy */;
+		};
+		AED57C3B1A537C93007B797A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AED57C2F1A537C93007B797A /* Hansel Now */;
+			targetProxy = AED57C3A1A537C93007B797A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -469,8 +585,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Hansel/Hansel.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Hansel/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Hansel;
@@ -486,8 +604,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Hansel/Hansel.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Hansel/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Hansel;
@@ -530,6 +650,38 @@
 			};
 			name = Release;
 		};
+		AED57C3E1A537C93007B797A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Hansel Now/Hansel Now.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Hansel Now/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		AED57C3F1A537C93007B797A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Hansel Now/Hansel Now.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Hansel Now/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -559,6 +711,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		AED57C3D1A537C93007B797A /* Build configuration list for PBXNativeTarget "Hansel Now" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AED57C3E1A537C93007B797A /* Debug */,
+				AED57C3F1A537C93007B797A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

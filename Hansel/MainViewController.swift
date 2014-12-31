@@ -33,6 +33,31 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         self.tableView.delegate = self
         self.Map.delegate = self
+        self.Map.showsPointsOfInterest = true
+        
+        let circleViewBase = UIView(frame:self.view.bounds)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        let circleView = UIImageView(image:image)
+        mainBlur.addSubview(circleView)
+        
+        var maskPath = UIBezierPath(rect: self.view.bounds)
+        
+        var point = CGPoint()
+        
+        var circlePath = UIBezierPath(ovalInRect: self.view.bounds)
+//        maskPath.addArcWithCenter(self.view!.center, radius: CGFloat(10.0), startAngle: CGFloat(0.0), endAngle: CGFloat(2*M_PI), clockwise: false)
+        
+        
+        let mask = CAShapeLayer()
+        let circleMask = CAShapeLayer()
+        circleMask.path = circlePath.CGPath
+        mask.mask = circleMask
+        mask.path = maskPath.CGPath
+        mainBlur.layer.mask = mask
+        
+        
         navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.translucent = true
@@ -53,7 +78,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         //        let geoFire = GeoFire(firebaseRef: geofireRef)
         
-        self.tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
+        self.tableView.contentInset = UIEdgeInsets(top: 64 + 16, left: 0, bottom: 0, right: 0)
         self.locationManager.showVerboseMessage = true
         self.locationManager.autoUpdate = true
         self.locationManager.startUpdatingLocation()
@@ -145,7 +170,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as InsightTableViewCell
         let insight = InsightsManager.sharedInstance.insights[indexPath.row]
         cell.insight = insight
-//        cell.BodyLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        cell.BodyLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
 //        cell.BodyLabel.attributedText = NSAttributedString(string: insight.body)
         cell.BodyLabel.text = insight.body
         cell.DateLabel.text = insight.readableDate()

@@ -18,10 +18,14 @@ class InsightsManager  {
     let notificationCenter = NSNotificationCenter.defaultCenter()
     var range = 1500.0
     let geoFire : GeoFire
-    
+    var userDefaults: NSUserDefaults
     
     init() {
         self.geoFire = GeoFire(firebaseRef: self.ref)
+        self.userDefaults = NSUserDefaults(suiteName: "group.a-le-bas.TodayExtensionSharingDefaults")!
+        
+        self.userDefaults.setObject(self.insights.description, forKey: "value")
+        userDefaults.synchronize()
     }
     
     class var sharedInstance : InsightsManager {
@@ -88,5 +92,8 @@ class InsightsManager  {
             return $0.rating() > $1.rating()
         }
         self.notificationCenter.postNotificationName("newInsight", object: self)
+        userDefaults.setObject("yo", forKey: "msg")
+        userDefaults.synchronize()
+        
     }
 }
