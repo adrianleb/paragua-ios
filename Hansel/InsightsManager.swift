@@ -19,6 +19,7 @@ class InsightsManager  {
     var range = 1500.0
     let geoFire : GeoFire
     var userDefaults: NSUserDefaults
+    var currentSortingIndex = 0
     
     init() {
         self.geoFire = GeoFire(firebaseRef: self.ref)
@@ -87,6 +88,29 @@ class InsightsManager  {
     
 
     
+    func sortBy(index:Int) {
+        if index != self.currentSortingIndex {
+            self.currentSortingIndex = index
+            self.insights.sort() {
+              switch index {
+                case 0:
+                    return $0.rating() > $1.rating()
+                case 1:
+                    return $0.created_at > $1.created_at
+                case 2:
+                    return $0.distance() < $1.distance()
+                case 3:
+                    return $0.upvotes.count > $1.upvotes.count
+                default:
+                    return $0.rating() > $1.rating()
+                }  //Switch
+            }
+            self.notificationCenter.postNotificationName("newInsight", object: self)
+            
+
+        }
+        
+    }
     func filterList() { // should probably be called sort and not filter
         self.insights.sort() {
             return $0.rating() > $1.rating()

@@ -65,13 +65,14 @@ class CreateTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, 
     }
     
     func offStage(x: CGFloat, y: CGFloat) -> CGAffineTransform {
-        return CGAffineTransformMakeTranslation(x, y)
+        return CGAffineTransformMakeScale(x, y)
+//        return CGAffineTransformMakeTranslation(x, y)
     }
     
     func offStageMenuController(createViewController: CreateViewController, mainViewController : UINavigationController){
         
         createViewController.view.alpha = 0
-        createViewController.view.transform = self.offStage(0, y: 50)
+        createViewController.view.transform = self.offStage(1.1, y: 1.1)
         var viewController = mainViewController.viewControllers[0] as MainViewController
         viewController.overallBlur.alpha = 0
         mainViewController.navigationBar.alpha = 1
@@ -115,8 +116,8 @@ class CreateTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, 
         viewController.overallBlur.alpha = 1
         
         mainViewController.navigationBar.alpha = 0
-        viewController.tableView.transform = self.offStage(0, y:-10)
-        mainViewController.navigationBar.transform = self.offStage(0, y:-10)
+        viewController.tableView.transform = self.offStage(0.99, y:0.99)
+//        mainViewController.navigationBar.transform = self.offStage(1, y:1)
 
         
 //        menuViewController.textPostIcon.transform = CGAffineTransformIdentity

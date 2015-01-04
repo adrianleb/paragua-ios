@@ -65,22 +65,22 @@ class FilterTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, 
     }
     
     func offStage(x: CGFloat, y: CGFloat) -> CGAffineTransform {
-        return CGAffineTransformMakeTranslation(x, y)
+        return CGAffineTransformMakeScale(x, y)
     }
     
     func offStageMenuController(filterViewController: FilterViewController, mainViewController : UINavigationController){
         
         filterViewController.view.alpha = 0
-        filterViewController.view.transform = self.offStage(0, y: 50)
+//        filterViewController.view.transform = self.offStage(0.9, y: 0.9)
         var viewController = mainViewController.viewControllers[0] as MainViewController
 //        viewController.overallBlur.alpha = 0
         viewController.mainBlur.alpha = 1
         mainViewController.navigationBar.alpha = 1
         viewController.tableView.transform = CGAffineTransformIdentity
         mainViewController.navigationBar.transform = CGAffineTransformIdentity
-        var visibleMap = viewController.Map.visibleMapRect
-        visibleMap.origin.y = visibleMap.origin.y - 20000.0
-        viewController.Map.setVisibleMapRect(visibleMap, animated: true)
+//        var visibleMap = viewController.Map.visibleMapRect
+//        visibleMap.origin.y = visibleMap.origin.y - 20000.0
+//        viewController.Map.setVisibleMapRect(visibleMap, animated: true)
         
 //        
 //        // setup paramaters for 2D transitions for animations
@@ -119,12 +119,12 @@ class FilterTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, 
         viewController.mainBlur.alpha = 0
         
         mainViewController.navigationBar.alpha = 0
-        viewController.tableView.transform = self.offStage(0, y:-10)
-        mainViewController.navigationBar.transform = self.offStage(0, y:-10)
+        viewController.tableView.transform = self.offStage(0.9, y:0.9)
+        mainViewController.navigationBar.transform = self.offStage(0.9, y:0.9)
         
-        var visibleMap = viewController.Map.visibleMapRect
-        visibleMap.origin.y = visibleMap.origin.y + 20000.0
-        viewController.Map.setVisibleMapRect(visibleMap, animated: true)
+//        var visibleMap = viewController.Map.visibleMapRect
+//        visibleMap.origin.y = visibleMap.origin.y + 20000.0
+//        viewController.Map.setVisibleMapRect(visibleMap, animated: true)
         
 
         

@@ -39,7 +39,7 @@ class CreateViewController: UIViewController, UITextViewDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.transform = CGAffineTransformMakeTranslation(0,50)
+        self.view.transform = CGAffineTransformMakeScale(1.1, 1.1)
         
         let lat = self.locationManager.latitude
         let lon = self.locationManager.longitude

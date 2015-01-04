@@ -23,7 +23,9 @@ class FilterViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.transitioningDelegate = self.transitionManager
-        self.view.transform = CGAffineTransformMakeTranslation(0,10)
+//        self.view.transform = CGAffineTransformMakeTranslation(0,-50)
+//        self.view.transform = CGAffineTransformMakeScale(1, 1)
+        self.preferredContentSize = CGSizeMake(320,120)
         
 
 

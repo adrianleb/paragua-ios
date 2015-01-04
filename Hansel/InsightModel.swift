@@ -55,6 +55,8 @@ struct Insight {
         
         let newDistance = Int(self.distance())
         let lengthFormatter = NSLengthFormatter()
+        lengthFormatter.unitStyle = NSFormattingUnitStyle.Long
+        
         return "\( lengthFormatter.stringFromMeters(Double(newDistance)))"
         
     }

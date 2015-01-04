@@ -14,8 +14,47 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var mainBlur: UIVisualEffectView!
     @IBOutlet weak var overallBlur: UIVisualEffectView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var filterView: UIView!
+    @IBOutlet weak var filterSegments: UISegmentedControl!
+    @IBOutlet weak var filterLabel: UIButton!
+    @IBOutlet weak var openFilterButton: UIBarButtonItem!
+    @IBAction func openFilterTapped(sender: AnyObject) {
+        if self.filterVisible {
+            UIView.animateWithDuration(0.5, delay: 0.0, options:.CurveEaseInOut, animations: {
+                
+                self.filterView.alpha = 0
+                self.tableView.contentInset = UIEdgeInsets(top: 64 + 16, left: 0, bottom: 0, right: 0)
+                self.filterView.transform = CGAffineTransformMakeTranslation(0, -10)
+                self.tableView.setContentOffset( CGPoint(x: 0, y: -80), animated: true)
+                }, completion: { finished in
+                    
+                    print("done")
+                    self.filterVisible = false
+                    print(finished)
+            })
+        } else {
+            UIView.animateWithDuration(0.5, delay: 0.0, options:.CurveEaseInOut, animations: {
+
+                self.filterView.alpha = 1
+                self.filterView.transform = CGAffineTransformMakeTranslation(0, 0)
+                self.tableView.contentInset = UIEdgeInsets(top: 128 + 16, left: 0, bottom: 0, right: 0)
+                self.tableView.setContentOffset( CGPoint(x: 0, y: -144), animated: true)
+                }, completion: { finished in
+                    
+                    print("done")
+                    self.filterVisible = true
+                    print(finished)
+            })
+        }
+
+    }
     
     @IBOutlet weak var Map: MKMapView!
+    
+    @IBAction func changedFilter(sender: AnyObject) {
+        InsightsManager.sharedInstance.sortBy(sender.selectedSegmentIndex)
+        self.tableView.setContentOffset( CGPoint(x: 0, y: -150), animated: true)
+    }
     
     @IBAction func unwindToMain(sender: UIStoryboardSegue){
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -26,6 +65,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     var insights = [Insight]()
+    var filterVisible = false
     let ref = Firebase(url: "https://insights.firebaseio.com/insights")
     var locationManager = LocationManager.sharedInstance
     
@@ -34,28 +74,69 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.delegate = self
         self.Map.delegate = self
         self.Map.showsPointsOfInterest = true
+        self.Map.mapType = MKMapType.Standard
         
-        let circleViewBase = UIView(frame:self.view.bounds)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+        var maskLayer = CAShapeLayer()
         
-        let circleView = UIImageView(image:image)
-        mainBlur.addSubview(circleView)
+        self.filterView.transform = CGAffineTransformMakeTranslation(0, -10)
+        self.filterSegments.layer.borderWidth = 0
         
-        var maskPath = UIBezierPath(rect: self.view.bounds)
+//        CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+//        CGMutablePathRef maskPath = CGPathCreateMutable();
+//        CGPathAddRect(maskPath, NULL, someBigRectangle); // this line is new
+//        CGPathAddPath(maskPath, nil, myPath.CGPath);
+//        [maskLayer setPath:maskPath];
+//        maskLayer.fillRule = kCAFillRuleEvenOdd;         // this line is new
+//        CGPathRelease(maskPath);
+//        self.layer.mask = maskLayer;
         
-        var point = CGPoint()
         
-        var circlePath = UIBezierPath(ovalInRect: self.view.bounds)
-//        maskPath.addArcWithCenter(self.view!.center, radius: CGFloat(10.0), startAngle: CGFloat(0.0), endAngle: CGFloat(2*M_PI), clockwise: false)
-        
-        
-        let mask = CAShapeLayer()
-        let circleMask = CAShapeLayer()
-        circleMask.path = circlePath.CGPath
-        mask.mask = circleMask
-        mask.path = maskPath.CGPath
-        mainBlur.layer.mask = mask
+        self.filterLabel.titleLabel?.text = "\(Float(InsightsManager.sharedInstance.range))m"
+//        
+//        let circleViewBase = UIView(frame:self.view.bounds)
+//        let image = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        
+//        
+//        let circleView = UIImageView(image:image)
+//        mainBlur.addSubview(circleView)
+//        
+//        var path = CGPathCreateMutable()
+//        
+//        
+//        var maskPath = UIBezierPath(rect: self.view.bounds)
+//    
+//        
+//        var point = CGPoint()
+//        var position = CGPointZero
+//        let circleSize: [Int] = [200,200]
+//        let origin = CGPoint(x: (Int(self.view.bounds.width/2) - Int(circleSize[0]/2)), y: (Int(self.view.bounds.height/2) - 50))
+////        let circleRect = CGRect(x:origin.x,y: origin.y, width:circleSize[0],height: circleSize[1])
+////        let circleRect = CGRect(x: self.view.bounds.width / 2, y:self.view.bounds.height / 2, width: circleSize[0], height: circleSize[1])
+//        var circlePath = UIBezierPath()
+//        var t = CGAffineTransformMakeTranslation(position.x, position.y)
+//        var maskRadius = MKCoordinateRegionMakeWithDistance(self.currentCenter().coordinate, InsightsManager.sharedInstance.range*4, InsightsManager.sharedInstance.range*4)
+//        circlePath.addArcWithCenter(self.view.center, radius: 70.0, startAngle: CGFloat(0.0), endAngle: CGFloat(2*M_PI), clockwise: false)
+//        CGPathAddPath(path, &t, maskPath.CGPath)
+//        CGPathAddPath(path, &t, circlePath.CGPath)
+//
+//
+////        CGPathAddPath(path, &t, maskPath)
+//
+//        let mask = CAShapeLayer()
+//        
+//        var finalPath = UIBezierPath()
+//        finalPath.appendPath(UIBezierPath(CGPath: path))
+//        
+//        let circleMask = CAShapeLayer()
+//        
+//        circleMask.path = finalPath.CGPath
+////        circleMask.
+//        circleMask.fillRule = kCAFillRuleEvenOdd
+//        
+////        mask.mask = circleMask
+//        mask.path = maskPath.CGPath
+//        mainBlur.layer.mask = circleMask
         
         
         navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
@@ -108,6 +189,17 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
+    
+    func filterContent() {
+//        cons = 
+//        0 = magic
+//        1 = time
+//        2 = distance
+//        3 = votes
+        
+    
+        
+    }
     
     func refreshTables() {
         self.drawRadiusAndPositionAndInsights()
@@ -175,7 +267,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.BodyLabel.text = insight.body
         cell.DateLabel.text = insight.readableDate()
         cell.UpvoteButton.setTitle("\(insight.upvotes.count)", forState: .Normal)
-        cell.DistanceLabel.text = insight.readableDistance()
+        cell.DistanceLabel.text = insight.readableDistance() + " away, "
 //        cell.contentView.sizeToFit()
         return cell
     }

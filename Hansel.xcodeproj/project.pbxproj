@@ -35,6 +35,7 @@
 		AED57C371A537C93007B797A /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED57C361A537C93007B797A /* TodayViewController.swift */; };
 		AED57C391A537C93007B797A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AED57C381A537C93007B797A /* MainInterface.storyboard */; };
 		AED57C3C1A537C93007B797A /* Hansel Now.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AED57C301A537C93007B797A /* Hansel Now.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AED57C441A577917007B797A /* StyleKitName.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED57C431A577917007B797A /* StyleKitName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		AED57C381A537C93007B797A /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		AED57C411A537D16007B797A /* Hansel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Hansel.entitlements; sourceTree = "<group>"; };
 		AED57C421A537D1F007B797A /* Hansel Now.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Hansel Now.entitlements"; sourceTree = "<group>"; };
+		AED57C431A577917007B797A /* StyleKitName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKitName.swift; sourceTree = "<group>"; };
 		D224C646C8B7796B1D827C05 /* Pods-Hansel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hansel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hansel/Pods-Hansel.release.xcconfig"; sourceTree = "<group>"; };
 		FBC2DBD8E7C3B04B68EF48C9 /* Pods-Hansel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hansel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hansel/Pods-Hansel.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,6 +162,7 @@
 				AE148AE61A534E2900DAF29F /* InsightsManager.swift */,
 				AE148AE71A534E2900DAF29F /* InsightTableViewCell.swift */,
 				AE148AE81A534E2900DAF29F /* LocationManager.swift */,
+				AED57C431A577917007B797A /* StyleKitName.swift */,
 				AE148AE91A534E2900DAF29F /* MainViewController.swift */,
 				AE148AEA1A534E2900DAF29F /* OneShotLocationManager.swift */,
 				AE148AEB1A534E2900DAF29F /* SessionManager.swift */,
@@ -436,6 +439,7 @@
 				AE148AF31A534E2900DAF29F /* CustomGesture.swift in Sources */,
 				AE148AFB1A534E2900DAF29F /* InsightsManager.swift in Sources */,
 				AE148AFD1A534E2900DAF29F /* LocationManager.swift in Sources */,
+				AED57C441A577917007B797A /* StyleKitName.swift in Sources */,
 				AE148AF11A534E2900DAF29F /* CreateTransitionManager.swift in Sources */,
 				AE148AFF1A534E2900DAF29F /* OneShotLocationManager.swift in Sources */,
 				AE148AFE1A534E2900DAF29F /* MainViewController.swift in Sources */,
@@ -719,6 +723,7 @@
 				AED57C3F1A537C93007B797A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
