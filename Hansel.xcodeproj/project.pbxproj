@@ -29,6 +29,7 @@
 		AE148B021A534E2900DAF29F /* TransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE148AED1A534E2900DAF29F /* TransitionDelegate.swift */; };
 		AE148B0C1A53525100DAF29F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE148AD71A534E2900DAF29F /* LaunchScreen.xib */; };
 		AE148B0D1A53525600DAF29F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE148AD91A534E2900DAF29F /* Main.storyboard */; };
+		AE93BC3A1A58D93100364B6D /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93BC391A58D93100364B6D /* OnboardingViewController.swift */; };
 		AEBADBFB1A4DD1FF00180115 /* InsightsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBADBFA1A4DD1FF00180115 /* InsightsTests.swift */; };
 		AEBADC0F1A4E162400180115 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBADC0E1A4E162400180115 /* MapKit.framework */; };
 		AED57C321A537C93007B797A /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED57C311A537C93007B797A /* NotificationCenter.framework */; };
@@ -96,6 +97,7 @@
 		AE148AEB1A534E2900DAF29F /* SessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		AE148AEC1A534E2900DAF29F /* SessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
 		AE148AED1A534E2900DAF29F /* TransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionDelegate.swift; sourceTree = "<group>"; };
+		AE93BC391A58D93100364B6D /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		AEBADBDF1A4DD1FF00180115 /* Hansel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hansel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEBADBF41A4DD1FF00180115 /* HanselTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HanselTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEBADBF91A4DD1FF00180115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				AE148AD61A534E2900DAF29F /* AppDelegate.swift */,
 				AE148AD71A534E2900DAF29F /* LaunchScreen.xib */,
 				AE148AD91A534E2900DAF29F /* Main.storyboard */,
+				AE93BC391A58D93100364B6D /* OnboardingViewController.swift */,
 				AE148ADB1A534E2900DAF29F /* CreateTransitionManager.swift */,
 				AE148ADC1A534E2900DAF29F /* CreateViewController.swift */,
 				AE148ADD1A534E2900DAF29F /* CustomGesture.swift */,
@@ -438,6 +441,7 @@
 				AE148AF51A534E2900DAF29F /* DetailViewController.swift in Sources */,
 				AE148AF31A534E2900DAF29F /* CustomGesture.swift in Sources */,
 				AE148AFB1A534E2900DAF29F /* InsightsManager.swift in Sources */,
+				AE93BC3A1A58D93100364B6D /* OnboardingViewController.swift in Sources */,
 				AE148AFD1A534E2900DAF29F /* LocationManager.swift in Sources */,
 				AED57C441A577917007B797A /* StyleKitName.swift in Sources */,
 				AE148AF11A534E2900DAF29F /* CreateTransitionManager.swift in Sources */,

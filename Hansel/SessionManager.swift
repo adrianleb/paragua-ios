@@ -54,24 +54,25 @@ class SessionManager  {
     }
     
     func checkSession(completion: ((Bool) -> Void)?) {
-        
-        self.ref.observeAuthEventWithBlock({ authData in
-            if authData != nil {
-                // user authenticated with Firebase
-                self.authData = authData
-                println("what??????? \(authData), www, \(self.authData!)")
-                completion!(true)
-                
-            } else {
-                println(authData)
-                self.performFacebookCheck({(result: Bool) in
-                    completion!(result)
-    
-                })   // Do any additional setup after loading the view.
-
-                // No user is logged in
-            }
-        })
+        completion!(true)
+//        self.ref.unauth()
+//        self.ref.observeAuthEventWithBlock({ authData in
+//            if authData != nil {
+//                // user authenticated with Firebase
+//                self.authData = authData
+//                println("what??????? \(authData), www, \(self.authData!)")
+//                completion!(true)
+//                
+//            } else {
+//                println(authData)
+//                self.performFacebookCheck({(result: Bool) in
+//                    completion!(result)
+//    
+//                })   // Do any additional setup after loading the view.
+//
+//                // No user is logged in
+//            }
+//        })
         
     }
     

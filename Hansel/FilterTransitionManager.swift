@@ -71,7 +71,7 @@ class FilterTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, 
     func offStageMenuController(filterViewController: FilterViewController, mainViewController : UINavigationController){
         
         filterViewController.view.alpha = 0
-//        filterViewController.view.transform = self.offStage(0.9, y: 0.9)
+        filterViewController.view.transform = self.offStage(0.99, y: 0.99)
         var viewController = mainViewController.viewControllers[0] as MainViewController
 //        viewController.overallBlur.alpha = 0
         viewController.mainBlur.alpha = 1
@@ -119,8 +119,8 @@ class FilterTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, 
         viewController.mainBlur.alpha = 0
         
         mainViewController.navigationBar.alpha = 0
-        viewController.tableView.transform = self.offStage(0.9, y:0.9)
-        mainViewController.navigationBar.transform = self.offStage(0.9, y:0.9)
+        viewController.tableView.transform = self.offStage(1.05, y:1.05)
+        mainViewController.navigationBar.transform = self.offStage(1.05, y:1.05)
         
 //        var visibleMap = viewController.Map.visibleMapRect
 //        visibleMap.origin.y = visibleMap.origin.y + 20000.0

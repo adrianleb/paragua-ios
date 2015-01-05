@@ -127,8 +127,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
     func startUpdatingLocationWithCompletionHandler(completionHandler:((latitude:Double, longitude:Double, status:String, verboseMessage:String, error:String?)->())? = nil){
         
         self.completionHandler = completionHandler
-        
-        initLocationManager()
+        self.startLocationManager()
     }
     
     
@@ -159,7 +158,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
-        // locationManager.locationServicesEnabled
+//         locationManager.locationServicesEnabled = true
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
         let Device = UIDevice.currentDevice()
@@ -170,7 +169,8 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
         
         if iOS8{
             
-            locationManager.requestAlwaysAuthorization() // add in plist NSLocationAlwaysUsageDescription
+//            locationManager.requestAlwaysAuthorization() // add in plist NSLocationAlwaysUsageDescription
+            
             locationManager.requestWhenInUseAuthorization() // add in plist NSLocationWhenInUseUsageDescription
         }
         
@@ -179,13 +179,27 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
         
     }
     
+    func requestPermission () {
+        
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        
+        
+//        locationManager.requestAlwaysAuthorization()
+    }
+    
+    
+    func startLocationManager() {
+     self.startLocationManger()
+    }
+    
     private func startLocationManger(){
         
         if(autoUpdate){
-            
             locationManager.startUpdatingLocation()
         }else{
-            
             locationManager.startMonitoringSignificantLocationChanges()
         }
         

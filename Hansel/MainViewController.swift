@@ -10,7 +10,13 @@ import UIKit
 import MapKit
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate {
-
+    var insights = [Insight]()
+    var filterVisible = false
+    let ref = Firebase(url: "https://insights.firebaseio.com/insights")
+    var coldUser = true
+    
+    @IBOutlet weak var Map: MKMapView!
+    var locationManager = LocationManager.sharedInstance
     @IBOutlet weak var mainBlur: UIVisualEffectView!
     @IBOutlet weak var overallBlur: UIVisualEffectView!
     @IBOutlet weak var tableView: UITableView!
@@ -18,14 +24,16 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var filterSegments: UISegmentedControl!
     @IBOutlet weak var filterLabel: UIButton!
     @IBOutlet weak var openFilterButton: UIBarButtonItem!
+    @IBOutlet weak var headerBlur: UIVisualEffectView!
     @IBAction func openFilterTapped(sender: AnyObject) {
         if self.filterVisible {
             UIView.animateWithDuration(0.5, delay: 0.0, options:.CurveEaseInOut, animations: {
                 
                 self.filterView.alpha = 0
                 self.tableView.contentInset = UIEdgeInsets(top: 64 + 16, left: 0, bottom: 0, right: 0)
-                self.filterView.transform = CGAffineTransformMakeTranslation(0, -10)
+//                self.filterView.transform = CGAffineTransformMakeTranslation(0, -10)
                 self.tableView.setContentOffset( CGPoint(x: 0, y: -80), animated: true)
+                self.headerBlur.transform = CGAffineTransformMakeTranslation(0, -64)
                 }, completion: { finished in
                     
                     print("done")
@@ -36,9 +44,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             UIView.animateWithDuration(0.5, delay: 0.0, options:.CurveEaseInOut, animations: {
 
                 self.filterView.alpha = 1
-                self.filterView.transform = CGAffineTransformMakeTranslation(0, 0)
+//                self.filterView.transform = CGAffineTransformMakeTranslation(0, 0)
                 self.tableView.contentInset = UIEdgeInsets(top: 128 + 16, left: 0, bottom: 0, right: 0)
                 self.tableView.setContentOffset( CGPoint(x: 0, y: -144), animated: true)
+                self.headerBlur.transform = CGAffineTransformMakeTranslation(0, 0)
                 }, completion: { finished in
                     
                     print("done")
@@ -49,7 +58,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     }
     
-    @IBOutlet weak var Map: MKMapView!
     
     @IBAction func changedFilter(sender: AnyObject) {
         InsightsManager.sharedInstance.sortBy(sender.selectedSegmentIndex)
@@ -59,92 +67,50 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func unwindToMain(sender: UIStoryboardSegue){
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    @IBAction func unwindToMainFromOnboarding(sender: UIStoryboardSegue){
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     @IBAction func unwindToMainFromFilter(sender: UIStoryboardSegue){
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
-    var insights = [Insight]()
-    var filterVisible = false
-    let ref = Firebase(url: "https://insights.firebaseio.com/insights")
-    var locationManager = LocationManager.sharedInstance
     
+    
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        let currentColdStatus: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey("userCold")
+        if currentColdStatus != nil {
+            self.coldUser = currentColdStatus as Bool
+        }
+        
+        if coldUser {
+            self.segueToOnboarding()
+        } else {
+            self.initAll()
+        }
+        
+        
+    }
+
+    func initAll() {
         self.tableView.delegate = self
         self.Map.delegate = self
         self.Map.showsPointsOfInterest = true
         self.Map.mapType = MKMapType.Standard
         
         var maskLayer = CAShapeLayer()
-        
-        self.filterView.transform = CGAffineTransformMakeTranslation(0, -10)
+        self.headerBlur.transform = CGAffineTransformMakeTranslation(0, -64)
         self.filterSegments.layer.borderWidth = 0
-        
-//        CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-//        CGMutablePathRef maskPath = CGPathCreateMutable();
-//        CGPathAddRect(maskPath, NULL, someBigRectangle); // this line is new
-//        CGPathAddPath(maskPath, nil, myPath.CGPath);
-//        [maskLayer setPath:maskPath];
-//        maskLayer.fillRule = kCAFillRuleEvenOdd;         // this line is new
-//        CGPathRelease(maskPath);
-//        self.layer.mask = maskLayer;
-        
-        
         self.filterLabel.titleLabel?.text = "\(Float(InsightsManager.sharedInstance.range))m"
-//        
-//        let circleViewBase = UIView(frame:self.view.bounds)
-//        let image = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//        
-//        
-//        let circleView = UIImageView(image:image)
-//        mainBlur.addSubview(circleView)
-//        
-//        var path = CGPathCreateMutable()
-//        
-//        
-//        var maskPath = UIBezierPath(rect: self.view.bounds)
-//    
-//        
-//        var point = CGPoint()
-//        var position = CGPointZero
-//        let circleSize: [Int] = [200,200]
-//        let origin = CGPoint(x: (Int(self.view.bounds.width/2) - Int(circleSize[0]/2)), y: (Int(self.view.bounds.height/2) - 50))
-////        let circleRect = CGRect(x:origin.x,y: origin.y, width:circleSize[0],height: circleSize[1])
-////        let circleRect = CGRect(x: self.view.bounds.width / 2, y:self.view.bounds.height / 2, width: circleSize[0], height: circleSize[1])
-//        var circlePath = UIBezierPath()
-//        var t = CGAffineTransformMakeTranslation(position.x, position.y)
-//        var maskRadius = MKCoordinateRegionMakeWithDistance(self.currentCenter().coordinate, InsightsManager.sharedInstance.range*4, InsightsManager.sharedInstance.range*4)
-//        circlePath.addArcWithCenter(self.view.center, radius: 70.0, startAngle: CGFloat(0.0), endAngle: CGFloat(2*M_PI), clockwise: false)
-//        CGPathAddPath(path, &t, maskPath.CGPath)
-//        CGPathAddPath(path, &t, circlePath.CGPath)
-//
-//
-////        CGPathAddPath(path, &t, maskPath)
-//
-//        let mask = CAShapeLayer()
-//        
-//        var finalPath = UIBezierPath()
-//        finalPath.appendPath(UIBezierPath(CGPath: path))
-//        
-//        let circleMask = CAShapeLayer()
-//        
-//        circleMask.path = finalPath.CGPath
-////        circleMask.
-//        circleMask.fillRule = kCAFillRuleEvenOdd
-//        
-////        mask.mask = circleMask
-//        mask.path = maskPath.CGPath
-//        mainBlur.layer.mask = circleMask
         
-        
+        //        transparent nav
         navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.translucent = true
         
-        self.tableView.estimatedRowHeight = 200.0;
-        self.tableView.rowHeight = UITableViewAutomaticDimension;
         
         SessionManager.sharedInstance.checkSession({(result: Bool) in
             if result != true {
@@ -155,9 +121,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             return
         })
-        
 
-        //        let geoFire = GeoFire(firebaseRef: geofireRef)
+        self.tableView.estimatedRowHeight = 200.0;
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
         
         self.tableView.contentInset = UIEdgeInsets(top: 64 + 16, left: 0, bottom: 0, right: 0)
         self.locationManager.showVerboseMessage = true
@@ -169,16 +135,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 InsightsManager.sharedInstance.queryRegion()
                 InsightsManager.sharedInstance.notificationCenter.addObserver(self, selector: Selector("refreshTables"), name: "newInsight", object:nil)
                 self.initWithLocation()
-
+                
             }
         }
         
-        
-        
-
-        // Do any additional setup after loading the view.
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -207,7 +168,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    
+    func segueToOnboarding(){
+        self.performSegueWithIdentifier("startOnboarding", sender: self)
+    }
     func drawRadiusAndPositionAndInsights(){
         self.Map.removeOverlays(self.Map.overlays)
         self.Map.removeAnnotations(self.Map.annotations)
